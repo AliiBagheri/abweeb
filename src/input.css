@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+    @font-face {
+        font-family: 'irnsns';
+        font-weight: 600;
+        src: url(fonts/Iranian\ Sans.ttf) format('ttf');
+    } */
+
+/* @layer base {
+    @font-face {
+        font-family: 'heshmat';
+        font-weight: 600;
+        src: url(fonts/W_heshmat.ttf) format('ttf');
+    }
+} */
+/* @layer base {
+    @font-face {
+        font-family: 'vazir';
+        src: url(fonts/vazir.ttf) format('ttf');
+    }
+} */
+/* @layer base {
+    html {
+      font-family: 'heshmat';
+    }
+} */

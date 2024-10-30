@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="./output.css" />
+    <title>abweb</title>
+  </head>
+
+  <body>
+
+    <!-- start head -->
+    <header>
+      <section class="nav-mobile-menu fixed z-[100]">
+        <div
+          class="mobile-overlay fixed top-0 right-0 w-full h-full bg-[#212121] opacity-60 translate-x-full z-[100] transition-all duration-700 ease-in-out delay-500"
+        ></div>
+      
+      <div
+        class="mobile-menu w-[300px] h-screen right-0 top-0 fixed bg-blue-200 z-[101] px-4 py-5 translate-x-full transition-all duration-500 ease-in-out"
+      >
+        <div class="close text-orange size-[20px] text-2xl cursor-pointer">
+          <i class="fas fa-times"></i>
+        </div>
+  
+        <ul class="mobile-menu-list 
+        flex flex-col w-full items-start pt-[55px] text-gray-100"
+        >
+          <li
+            class="w-full relative border-y border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">خانه</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">درباره ما</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">سرویس ها</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">صفحات</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">نمونه کارها</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a href="#">وبلاگ</a>
+          </li>
+          <li
+            class="w-full relative border-b border-gray-100 border-opacity-20 py-4 cursor-pointer"
+          >
+            <a hr ef="#">تماس با ما</a>
+          </li>
+        </ul>
+  
+        <div class="mobile-menu-socialItems">
+          <ul class="mobile-menu-contact mt-9">
+            <li class="email flex mb-[13px]">
+              <div class="icon text-sm  text-white size-[32px] bg-orange rounded-full flex items-center justify-center ">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>  
+            <div class="content text-white my-auto pr-2 text-sm hover:text-orange transition duration-500 ease-in-out">
+              <a href="mailto:b.alireza1390@gmail.com">b.alireza1390@gmail.com</a>
+            </div>     
+            </li>
+            <li class="call flex">
+              <div class="icon text-sm  text-white size-[32px] bg-orange rounded-full flex items-center justify-center ">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="content text-white my-auto pr-2 text-sm hover:text-orange transition duration-500 ease-in-out" dir="ltr">
+                <a href="tel:09336026232">+98 919 5687276</a>
+              </div>  
+            </li>
+          </ul>
+  
+          <ul class="mobile-menu-socialItems pt-6 flex">
+            <li class="text-white text-lg pl-6 hover:text-orange transition-all duration-500 ease-in-out"><a href="">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a></li>
+            <li class="text-white text-lg pl-6 hover:text-orange transition-all duration-500 ease-in-out"><a href="">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a></li>
+            <li class="text-white text-lg pl-6 hover:text-orange transition-all duration-500 ease-in-out"><a href="">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+            </a></li>
+            <li class="text-white text-lg hover:text-orange transition-all duration-500 ease-in-out"><a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="search fixed scale-y-0 flex z-[100] w-full h-full items-center justify-center transition-all duration-700 ease-out origin-top">
+        <div class="layer-searchBox w-[560px]  h-[66px] z-[100] bg-white relative rounded-lg ">
+          <form action="#" class="w-full h-full">
+            <input placeholder="جستوجو" type="text" class="w-full h-full bg-white pr-7 pl-[80px] outline-none rounded-lg ">
+          <div class="search-btn absolute left-0 top-0 size-[66px] bg-blue-300 rounded-l-lg flex justify-center items-center cursor-pointer">
+            <i class="fa fa-search text-white text-2xl" aria-hidden="true"></i>
+          </div>
+          </form>
+        </div> 
+
+        <div class="search-layer fixed top-0 right-0 w-full h-full bg-[#021f75a9] ">
+        </div>
+  
+     
+    </section>
+      <section class="top-header relative lg:border-b-2 border-gray-100">
+        <div class="cont flex justify-center lg:justify-between">
+          <div
+            class="logo relative bg-white w-[100px] h-[135px] mb-5 rounded-b-full flex items-center justify-center shadow-lg lg:absolute lg:h-[115px]"
+          >
+            <a href="#" class="flex items-center justify-center">
+              <img src="img/LOGO-3.png" class="w-4/5" alt="" />
+            </a>
+          </div>
+
+          <div
+            class="welcome hidden mr-[180px] w-1/3 my-auto items-center text-gray-200 font-['vazir'] lg:flex"
+          >
+            <h3>به وبسایت ما خوش آمدید</h3>
+          </div>
+
+          <div class="social
+          hidden w-1/3 h-[50px] items-center justify-end lg:flex"
+          >
+            <div class="socialItems w-1/3 flex flex-row-reverse">
+              <div
+                class="socialItem size-[20px] items-center justify-center flex"
+              >
+                <a href="#"><i class="fab fa-instagram text-gray-200 hover:text-blue-200"></i></a>
+              </div>
+              <div
+                class="socialItem size-[20px] items-center justify-center flex ml-6"
+              >
+                <a href="#"><i class="fab fa-telegram text-gray-200 hover:text-blue-200"></i></a>
+              </div>
+              <div
+                class="socialItem size-[20px] items-center justify-center flex ml-6"
+              >
+                <a href="#"><i class="fab fa-facebook text-gray-200 hover:text-blue-200"></i></a>
+              </div>
+              <div
+                class="socialItem size-[20px] items-center justify-center flex ml-6"
+              >
+                <a href="#"><i class="fab fa-twitter text-gray-200 hover:text-blue-200"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="details hidden w-full h-[45px] mt-[15px] mb-[30px] flex-row-reverse items-center lg:flex"
+      >
+        <div class="cont h-full">
+          <ul class="flex w-full h-full justify-end">
+            <li
+              class="h-full relative flex justify-end items-end px-6 border-l border-gray-100"
+            >
+              <a href="#">
+                <i class="far fa-location-dot text-orange text-3xl px-3"></i>
+              </a>
+              <div class="text">
+                <h4 class="text-sm text-gray-200">تهران</h4>
+                <span class="text-blue-400 text-lg font-bold">شهریار</span>
+              </div>
+            </li>
+
+            <li
+              class="h-full relative flex justify-end items-end px-6 border-l border-gray-100"
+            >
+              <a href="#">
+                <i class="far fa-phone-volume text-orange text-3xl px-3"></i>
+              </a>
+              <div class="text">
+                <h4 class="text-sm text-gray-200">شماره تماس</h4>
+                <span class="text-blue-400 text-lg pt-4 font-bold"
+                  ><a href="tel:+989336026232">09336026232</a></span
+                >
+              </div>
+            </li>
+
+            <li
+              class="h-full relative flex justify-end items-end pr-6 pl-0 border-gray-100 xl:border-l xl:pl-6"
+            >
+              <a href="#">
+                <i class="far fa-clock text-orange text-3xl px-3"></i>
+              </a>
+              <div class="text">
+                <h4 class="text-sm text-gray-200">ساعت کاری</h4>
+                <span class="text-blue-400 text-lg pt-4 font-bold"
+                  >9 الی 17</span
+                >
+              </div>
+            </li>
+
+            <li
+              class="hidden h-full relative justify-end items-end pr-6 xl:flex"
+            >
+              <a href="#">
+                <i
+                  class="fa-regular fa-envelope-open-text text-orange text-3xl px-3"
+                ></i>
+              </a>
+              <div class="text flex justify-between flex-col h-full">
+                <h4 class="text-sm text-gray-200">ایمیل</h4>
+                <span class="text-blue-400 text-lg font-bold"
+                  >b.alireza@gmail.com</span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section
+        class="nav-bar-section w-full h-[70px] flex items-center justify-center z-50 relative"
+      >
+        <div
+          class="cont cont-nav top-0 transition-all duration-500 ease-in-out h-[70px]"
+        >
+          <div
+            class="nav-bar w-full h-[70px] bg-blue-200 rounded-xl flex items-center"
+          >
+            <div
+              class="nav hidden w-11/12 h-2/3 border-l border-gray-100 border-opacity-60 lg:block"
+            >
+              <ul
+                class="flex w-2/3 h-full justify-between items-center pr-10 text-gray-100"
+              >
+                <li class="text-white font-bold"><a href="#">خانه</a></li>
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">سرویس ها</a></li>
+                <li><a href="#">صفحات</a></li>
+                <li><a href="#">نمونه کارها</a></li>
+                <li><a href="#">وبلاگ</a></li>
+                <li><a hr ef="#">تماس با ما</a></li>
+              </ul>
+            </div>
+
+            <div
+              class="nav-mobile w-11/12 h-3/4 border-l border-gray-100 border-opacity-60 flex items-center pr-7 lg:hidden"
+            >
+              <div class="nav-trigger size-[25px] cursor-pointer">
+                <i class="far fa-bars text-white text-2xl"></i>
+              </div>
+            </div>
+
+            <div
+              class="search-box w-2/12 flex items-center justify-center md:w-1/12 cursor-pointer"
+            >
+                <i class="far fa-search text-white text-2xl"></i>
+                  </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <!-- end head -->
+    <main>
+      <!-- start banner -->
+      <section class="banner">
+        <div class="cont relative -top-5">
+        <div class="banner-wrapperr right-0 w-full h-auto relative ">
+          <div class="slides relative w-auto h-[450px] flex justify-center items-center">
+           
+            <div class="slide overflow-hidden h-full w-full relative bg-no-repeat bg-cover rounded-lg bg-right-top  " style="background-image: url(img/beach2.jpg);"></div>
+          </div>
+
+
+    <!-- banner-content -->
+    <div
+    class="banner-content absolute z-40 top-[30%]  animate-title pr-10 hidden lg:block"
+  >
+
+
+    <div class="sub-title">
+      <h4 class="text-[15px] text-white font-['vazir-bold'] pr-3">
+        تا دیر نشده سفر کن
+      </h4>
+    </div>
+    <div class="title">
+      <h2
+        class="text-white text-[35px] font-extrabold font-['vazir-black'] mt-2 "
+      >
+        تورهای خارجی<br />در
+        <span class="text-orange underline text-[40px]">5 قاره</span> دنیا
+      </h2>
+    </div>
+  </div>
+  
+
+    <!-- banner-content -->
+<!-- banner-angels -->
+<div
+class="angels flex  absolute top-[50%]  left-0 pl-10 z-40"
+>
+<div
+  class="prev ml-2 size-[35px]  text-xs rounded-full bg-white flex items-center justify-center text-gray-200 cursor-pointer"
+>
+  <i class="fa fa-angle-right" aria-hidden="true"></i>
+</div>
+<div
+  class="next size-[35px] text-xs rounded-full bg-white flex items-center justify-center text-gray-200 cursor-pointer "
+>
+  <i class="fa fa-angle-left" aria-hidden="true"></i>
+</div>
+</div>
+
+<!-- banner-angels -->
+
+
+<!--bannerr-layer -->
+ <div class="layers w-full h-full absolute top-0 right-0">
+<div class="layer1 w-full h-full relative top-0 right-0 bg-gradient-to-b from-[rgba(41,41,41,0.15)] from-80% to-[rgba(0,0,0,0.6)] rounded-lg "></div>
+
+        
+            <div
+              class="star-banner-1 absolute top-[-35px] left-[50px] animate-zoominout "
+            >
+              <img src="img/shapes/main-slider-star-3.png" class="" alt="" />
+            </div>
+            <div
+              class="star-banner-2 absolute top-[-20px] left-[400px] animate-zoominout2"
+            >
+              <img src="img/shapes/main-slider-star-2.png" class="" alt="" />
+            </div>
+            <div
+              class="star-banner-3 absolute top-[20px] left-[550px] animate-zoominout hidden lg:block"
+            >
+              <img src="img/shapes/main-slider-star-3.png" class="" alt="" />
+            </div>
+          </div>
+<!-- banner-layer -->
+
+  </div>
+  </div>
+
+
+  <section class="carousel relative top-[-100px]">
+    <div class="cont overflow-hidden">
+      <ul class="slider-wrapper  h-[300px]  w-full flex relative  transition duration-500 ease-in-out z-[45] ">
+        
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/eiffel.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>فرانسه</h4>
+            </div>
+          </div>
+        </a></li>
+        
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/spain.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>اسپانیا</h4>
+            </div>
+          </div>
+        </a></li>
+        
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/greece.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>یونان</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/italy (5).jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>ایتالیا</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/thailand.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>تایلند</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/japan.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>ژاپن</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/turkey.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>تورکیه</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/egypt.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>مصر</h4>
+            </div>
+          </div>
+        </a></li>
+  
+  
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/china.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>چین</h4>
+            </div>
+          </div>
+        </a></li>
+        <li class="slide min-w-[46%] mx-[2%] lg:min-w-[23%] lg:mx-[1%] xl:min-w-[19%] xl:mx-[.5%] h-[220px] group "><a href="#">
+          <div class="w-full h-full  border-[8px]  border-white rounded-2xl hover:shadow-slide transition-all duration-500 ease-in-out overflow-hidden">
+            <div class="slide-img w-full h-[150px] group-hover:scale-105 transition-all duration-500 ease-in-out">
+              <img src="img/netherland.jpg" class="w-full h-full rounded-lg " alt="">
+            </div>
+        
+            <div class="slide-content font-bold text-lg my-3 pr-1">
+              <h4>هلند</h4>
+            </div>
+          </div>
+        </a></li>
+       
+
+      </ul>
+    </div>
+
+  </section>
+      </section>
+      <!-- end slider -->
+
+      <div class="w-full h-[3000px]"></div>
+
+      <section class="information">
+        <div class="cont">
+          <div
+            class="info-inner bottom-[-150px] relative z-40 flex justify-center items-center h-auto bg-blue-400 shadow-lg rounded-xl pt-[93px] pb-[75px] md:mx-[60px] lg:mx-[30px] lg:pt-[70px] lg:pb-[50px] before:absolute before:top-[15px] before:bottom-[15px] before:left-0 before:right-0 before:bg-white before:rounded-xl before:shadow-normal md:before:right-[-60px] md:before:left-[-60px] lg:before:right-[-60px] lg:before:left-[-30px]"
+          >
+            <!-- logo -->
+            <div
+              class="logoBox absolute top-[-50px] left-1/2 translate-x-[-50%] size-[120px] rounded-full bg-white shadow-normal"
+            >
+              <img src="img/LOGO-3.png" alt="" />
+
+              <div
+                class="border-1 absolute top-[76px] left-[-90px] right-[-90px] h-[3px] bg-orange -z-10"
+              ></div>
+              <div
+                class="border-1 absolute top-[85px] left-[-70px] right-[-70px] h-[3px] bg-blue-400 -z-10"
+              ></div>
+            </div>
+            <!-- logo -->
+            <!-- info -->
+            <div class="info-box z-40 p-3 flex justify-start w-full">
+              <ul
+                class="space-y-5 w-full flex flex-col lg:flex-row lg:space-y-0"
+              >
+                <li
+                  class="phone-number w-full flex items-center justify-start lg:w-1/3 lg:justify-center"
+                >
+                  <div class="icon text-5xl text-blue-200 ml-4">
+                    <i
+                      class="fal fa-phone-volume"
+                      data-fa-transform="flip-h"
+                    ></i>
+                  </div>
+                  <div class="info flex flex-col space-y-2">
+                    <span class="title text-gray-200 font-bold"
+                      >شماره تماس</span
+                    >
+                    <span
+                      class="desc text-blue-200 font-['vazir-bold'] text-2xl hover:text-orange"
+                      dir="ltr"
+                      ><a href="tel:+989336026232">+98 919 568 7276</a></span
+                    >
+                  </div>
+                </li>
+                <li
+                  class="email-adress w-full flex items-center justify-start lg:w-1/3 lg:justify-center"
+                >
+                  <div class="icon text-5xl text-blue-200 ml-4">
+                    <i class="fal fa-envelope" data-fa-transform="flip-h"></i>
+                  </div>
+                  <div class="info flex flex-col space-y-2">
+                    <span class="title text-gray-200 font-bold"
+                      >آدرس ایمیل</span
+                    >
+                    <span
+                      class="desc text-blue-200 text-2xl font-sans font-bold hover:text-orange"
+                      dir="ltr"
+                      ><a href="mailto:b.alireza1390@gmail.com"
+                        >b.alireza@gmail.com</a
+                      ></span
+                    >
+                  </div>
+                </li>
+                <li
+                  class="adress w-full flex items-center justify-start lg:w-1/3 lg:justify-center"
+                >
+                  <div class="icon text-5xl text-blue-200 ml-4">
+                    <i
+                      class="fal fa-location-dot"
+                      data-fa-transform="flip-h"
+                    ></i>
+                  </div>
+                  <div class="info flex flex-col space-y-1">
+                    <span class="title text-gray-200 font-bold">دفتر ما</span>
+                    <span
+                      class="desc text-blue-200 font-['vazir-bold'] text-2xl"
+                      dir="ltr"
+                      >تهران شهریار</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- info -->
+        </div>
+      </section>
+    </main>
+    <!-- start footer -->
+    <footer>
+      <div
+        class="site-footer relative bg-blue-150 pt-[150px] pb-[100px] overflow-hidden"
+      >
+        <div
+          class="site-footer-shape-1 absolute top-0 right-0 bottom-0 left-0 bg-center opacity-[0.03] bg-no-repeat bg-cover"
+          style="background-image: url(img/shapes/site-footer-shape-1.png)"
+        ></div>
+        <div
+          class="site-footer-shape-2 opacity-10 absolute bottom-[-85px] mix-blend-lighten flex justify-center w-full animate-zoomFade"
+        >
+          <img
+            src="img/shapes/site-footer-shape-2.png"
+            class="w-auto max-w-none"
+            alt=""
+          />
+        </div>
+
+        <div class="footer-contact pt-[60px] relative">
+          <div class="cont flex flex-wrap justify-between">
+            <!-- about us -->
+            <div
+              class="footer-aboutUs mb-[50px] w-full md:w-[50%] md:pl-[10%] lg:w-[30%] lg:pl-[3%] lg:mb-0"
+            >
+              <div class="title text-2xl text-white mb-[20px]">
+                <h3>درباره ما</h3>
+              </div>
+              <div class="desc text-gray-100 leading-8">
+                <p>
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                  استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
+                  مجله در ستون
+                </p>
+              </div>
+              <div class="footer-socialItems flex mt-7">
+                <div
+                  class="footer-socialItem relative group size-[40px] items-center justify-center flex ml-6 bg-blue-400 rounded-full cursor-pointer overflow-hidden"
+                >
+                  <a
+                    href="#"
+                    class="size-[25px] flex justify-center items-center text-white text-lg group-hover:text-blue-400 cursor-pointer"
+                    ><i class="fab fa-telegram z-30" aria-hidden="true"></i
+                  ></a>
+                </div>
+                <div
+                  class="footer-socialItem relative group size-[40px] items-center justify-center flex ml-6 bg-blue-400 rounded-full cursor-pointer overflow-hidden"
+                >
+                  <a
+                    href="#"
+                    class="size-[25px] flex justify-center items-center text-white text-lg group-hover:text-blue-400"
+                    ><i class="fab fa-facebook z-30" aria-hidden="true"></i
+                  ></a>
+                </div>
+                <div
+                  class="footer-socialItem relative group size-[40px] items-center justify-center flex ml-6 bg-blue-400 rounded-full cursor-pointer overflow-hidden"
+                >
+                  <a
+                    href="#"
+                    class="size-[25px] flex justify-center items-center text-white text-lg group-hover:text-blue-400"
+                    ><i class="fa fa-envelope z-30" aria-hidden="true"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- about us -->
+            <!-- links -->
+            <div
+              class="footer-links mb-[50px] w-full md:w-[40%] lg:w-[15%] lg:pl-[3%] lg:mb-0"
+            >
+              <div class="title text-white text-2xl pb-[20px]">
+                <h2>لینک ها</h2>
+              </div>
+              <ul
+                class="desc text-gray-100 pb-[20px] space-y-[10px] font-['vazir-light']"
+              >
+                <li><a href="#">درباره ما</a></li>
+                <li><a href="#">آشنایی با تیم ما</a></li>
+                <li><a href="#">نمونه کارها</a></li>
+                <li><a href="#">تماس با ما</a></li>
+              </ul>
+            </div>
+            <!-- links -->
+            <!-- blog -->
+            <div
+              class="footer-blog mb-[50px] w-full md:w-[50%] md:pl-[10%] md:mb-0 lg:w-[26%] lg:pl-[3%]"
+            >
+              <div class="title text-white text-2xl pb-[20px]">
+                <h2>مقاله ها</h2>
+              </div>
+              <ul>
+                <li class="blog-box flex mb-8">
+                  <div class="blog-box-img w-full max-w-[80px] ml-5">
+                    <img src="img/80x80.jpg" class="rounded-lg w-full" alt="" />
+                  </div>
+                  <div class="blog-box-contact">
+                    <div class="date text-xs text-orange mb-2">
+                      <span>2 خرداد 1403</span>
+                    </div>
+                    <div class="desc text-white">
+                      لورم اپسیوم متن ساختگی با تولید نامفهموم
+                    </div>
+                  </div>
+                </li>
+                <li class="blog-box flex">
+                  <div class="blog-box-img w-full max-w-[80px] ml-5">
+                    <img
+                      src="img/80x80.jpg"
+                      class="rounded-lg w-[80px]"
+                      alt=""
+                    />
+                  </div>
+                  <div class="blog-box-contact">
+                    <div class="date text-xs text-orange mb-2">
+                      <span>2 خرداد 1403</span>
+                    </div>
+                    <div class="desc text-white">
+                      لورم اپسیوم متن ساختگی با تولید نامفهموم
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- blog -->
+            <!-- news -->
+            <div class="footer-news w-full md:mb-0 md:w-[40%] lg:w-[20%]">
+              <div class="title text-white text-2xl pb-[20px]">
+                <h2>خبرنامه</h2>
+              </div>
+              <div
+                class="desc text-gray-100 w-1/2 font-['vazir-light'] md:w-full"
+              >
+                <p>
+                  در خبرنامه ما ثبت نام کنید تا از اخرین اخبار و مقاله ها باخبر
+                  شوید
+                </p>
+              </div>
+              <div class="footer-form relative">
+                <input
+                  type="email"
+                  placeholder="آدرس ایمیل"
+                  class="placeholder-gray-100 text-white text-xs outline-none w-full h-[60px] bg-[rgba(225,225,225,0.1)] rounded-lg mt-[30px] pr-[30px] pl-[65px]"
+                />
+                <div
+                  class="send size-[35px] pl-[2px] absolute left-[20px] top-1/2 text-white bg-orange rounded-full flex items-center justify-center font-bold cursor-pointer"
+                >
+                  <i
+                    class="far fa-paper-plane"
+                    aria-hidden="true"
+                    data-fa-transform="flip-h"
+                  ></i>
+                </div>
+              </div>
+            </div>
+            <!-- news -->
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="site-btm-footer bg-blue-400 flex items-center justify-center py-5 text-gray-100 relative"
+      >
+        <h3>© Righted 2024 by AlirezaBagheri</h3>
+      </div>
+    </footer>
+    <!-- end footer -->
+
+    <script src="js/all.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
