@@ -33,7 +33,7 @@ searchLayer.addEventListener('click',()=>{
 })
 
 
-console.log(searchBtn)
+
 //search
 
 //mobile menu
@@ -41,7 +41,6 @@ const trigger = document.querySelector(".nav-trigger");
 const navOverlay = document.querySelector(".mobile-overlay");
 const close = document.querySelector(".mobile-menu .close");
 const mobileMenu = document.querySelector(".mobile-menu");
-console.log(navOverlay);
 trigger.addEventListener("click", () => {
 openMenu();
 });
@@ -101,7 +100,6 @@ function reponseItems(){
 for (let i = 0; i < responsive.length; i++) {
   if (window.innerWidth > responsive[i].breakpoint.width) {
       items = responsive[i].breakpoint.item;
-      console.log(items)
   }
 }
 }
@@ -113,7 +111,7 @@ reponseItems();
   index++;
   let move =(100/items)*index;
 sliderWrap.style.transform=`translateX(${move}%)`;
-offSlide();
+
 
   }
 }
@@ -124,10 +122,10 @@ function prevSlide(){
   index--;
   let move =(100/items)*index;
 sliderWrap.style.transform=`translateX(${move}%)`;
-offSlide();
   }
 }
 function offSlide(){
+  reponseItems();
   if(index<1){
     prev.style.opacity=0.2;
     prev.style.pointerEvents='none';
@@ -144,5 +142,24 @@ function offSlide(){
   }
 }
 offSlide();
+
+
+
+//arrival animation
+
+
+window.addEventListener('scroll',()=>{
+  const sections= document.querySelectorAll('.animation')
+const scrollPosition = window.scrollY + window.innerHeight;
+  sections.forEach(section=>{
+    const sectionPosition = section.offsetTop + section.offsetHeight * 0.1;
+   if(scrollPosition > sectionPosition){
+section.classList.add('animate-run')
+  }
+  })
+})
+
+
+
 
 

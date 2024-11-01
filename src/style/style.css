@@ -116,3 +116,14 @@ margin: 0 auto;
   .mobile-menu .mobile-menu-list li:hover::before{
     transform: scaleX(1);
   }
+
+  .animation{
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: all .5s ease-in-out;
+  }
+
+  .animate-run{
+    transform: translateY(0);
+    opacity: 1;
+  }

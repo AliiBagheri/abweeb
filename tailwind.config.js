@@ -75,6 +75,7 @@ module.exports = {
                    zoominout2:'zoominout2 3s ease-in-out infinite',
                    zoom:'zoom .8s ease-in-out forwards',
                    zoomFade:'zoomFade 5s linear infinite',
+                   arrival:'arrival .5s ease-in-out'
             },
 
 
@@ -133,6 +134,18 @@ module.exports = {
                             transform:'translateX(40px) translateY(0) scale(0.9)',
                         },
                     },
+
+
+                    arrival:{
+                        '0%':{
+                            opacity:'0',
+                            transform:'translateY(-30px)',
+                        },
+                        '100%':{
+                            opacity:'1',
+                            transform:'translateY(0px)',
+                        }
+                    }
           
 
                 
