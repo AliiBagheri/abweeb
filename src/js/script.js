@@ -111,7 +111,7 @@ reponseItems();
   index++;
   let move =(100/items)*index;
 sliderWrap.style.transform=`translateX(${move}%)`;
-
+offSlide();
 
   }
 }
@@ -121,7 +121,9 @@ function prevSlide(){
   if(index>=1){
   index--;
   let move =(100/items)*index;
+  prev.style.pointerEvents=''
 sliderWrap.style.transform=`translateX(${move}%)`;
+offSlide();
   }
 }
 function offSlide(){

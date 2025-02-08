@@ -75,7 +75,9 @@ module.exports = {
                    zoominout2:'zoominout2 3s ease-in-out infinite',
                    zoom:'zoom .8s ease-in-out forwards',
                    zoomFade:'zoomFade 5s linear infinite',
-                   arrival:'arrival .5s ease-in-out'
+                   arrival:'arrival .5s ease-in-out',
+                   floatY:'floatY 2s linear infinite',
+                   floatX:'floatX 2s linear infinite',
             },
 
 
@@ -145,6 +147,41 @@ module.exports = {
                             opacity:'1',
                             transform:'translateY(0px)',
                         }
+                    },
+
+                    floatY:{
+                       '0%':{
+                        transform:'translateY(0px)'
+                        },
+                       '25%':{
+                        transform:'translateY(5px)'
+                        },
+                        '50%':{
+                        transform:'translateY(0px)'
+                        },
+                        '75%':{
+                            transform:'translateY(-5px)'
+                           },
+                        '100%':{
+                            transform:'translateY(0px)'
+                           },
+                    },
+                    floatX:{
+                       '0%':{
+                        transform:'translateX(0px)'
+                        },
+                       '25%':{
+                        transform:'translateX(5px)'
+                        },
+                        '50%':{
+                        transform:'translateX(0px)'
+                        },
+                        '75%':{
+                            transform:'translateX(-5px)'
+                           },
+                        '100%':{
+                            transform:'translateX(0px)'
+                           },
                     }
           
 
