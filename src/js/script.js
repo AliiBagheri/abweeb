@@ -162,6 +162,55 @@ section.classList.add('animate-run')
 })
 
 
+//owl carousel
+
+const storePrev = document.querySelector('#store-angels .prev');
+const storeNext = document.querySelector('#store-angels .next');
+const owlCarousel = document.querySelector('.owl-carousel-inner');
+const owlSlide = document.querySelector('.owl-carousel .slides');
+const SlideWidth = owlSlide.getBoundingClientRect().width;
+const slideMargin =parseFloat(window.getComputedStyle(owlSlide).marginRight);
+const slideTrueWidth = SlideWidth+slideMargin;
+
+storePrev.addEventListener('click',nextFunction)
+storeNext.addEventListener('click',prevFunction)
+
+index=0;
+const slides = document.querySelectorAll('.slides');
+
+function nextFunction(){
+  if(index<slides.length-4){
+  index++;
+  owlCarousel.style.transform=`translateX(${slideTrueWidth*index}px)`;
+fadeSlide();
+  }
+}
+function prevFunction(){
+  if(index>0){
+    index--;
+  owlCarousel.style.transform=`translateX(${slideTrueWidth*index}px)`;
+  console.log(index)
+  fadeSlide();
+  }
+}
+
+function fadeSlide(){
+
+  for(i=0;i<=slides.length;i++){
+    slides[i].classList.remove('active')
+
+    for(j=index+1;j<=index+3;j++){
+  slides[j].classList.add('active')
+    }
+  }
+}
+fadeSlide();
+
+
+
+
+
+
 
 
 

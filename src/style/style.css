@@ -1,3 +1,7 @@
+body{
+  overflow-x: hidden;
+}
+
 .cont{
 height: 100%;
 margin: 0 auto;
@@ -126,4 +130,28 @@ margin: 0 auto;
   .animate-run{
     transform: translateY(0);
     opacity: 1;
+  }
+
+
+.slides{
+opacity: 0;
+  transition: all .3s ease-in-out;
+}
+.slides.active{
+opacity: 1;
+    display: block;
+    }
+
+    .store-tag::before{
+      position: absolute;
+    top: 0;
+    right: -14px;
+    content: "";
+    border-top: 17px solid transparent;
+    border-left: 14px solid #0a2e99;
+    border-bottom: 0px solid transparent;
+    }
+
+    .transition-500-ease {
+     transition: all .5s ease-in-out;
   }
