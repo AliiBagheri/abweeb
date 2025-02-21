@@ -172,8 +172,8 @@ const SlideWidth = owlSlide.getBoundingClientRect().width;
 const slideMargin =parseFloat(window.getComputedStyle(owlSlide).marginRight);
 const slideTrueWidth = SlideWidth+slideMargin;
 
-storePrev.addEventListener('click',nextFunction)
-storeNext.addEventListener('click',prevFunction)
+storePrev.addEventListener('click',prevFunction)
+storeNext.addEventListener('click',nextFunction)
 
 index=0;
 const slides = document.querySelectorAll('.slides');
@@ -196,11 +196,11 @@ function prevFunction(){
 
 function fadeSlide(){
 
-  for(i=0;i<=slides.length;i++){
-    slides[i].classList.remove('active')
+  for(i=0;i<slides.length;i++){
+    slides[i].classList.remove('active');
 
     for(j=index+1;j<=index+3;j++){
-  slides[j].classList.add('active')
+  slides[j].classList.add('active');
     }
   }
 }
@@ -208,6 +208,76 @@ fadeSlide();
 
 
 
+//counter
+const countNumber = document.querySelectorAll('.counter-number span');
+
+delay=40;
+index=0;
+countNumber.forEach((countNumb)=>{
+const numbData=parseInt(countNumb.getAttribute('data-numb'));
+  console.log(numbData)
+
+
+  let currentNum = parseInt(countNumb.innerText);
+const finalNumb=currentNum;
+let hasreset =false;
+const startInterval = () => {
+  const counterInterval = setInterval(() => {
+ 
+    countNumb.innerText = currentNum;
+    
+
+
+    if(currentNum<9){
+      currentNum += 1;
+      updateNumber();
+    }else{
+      currentNum=0;
+      updateNumber();
+    }
+  
+
+  if(currentNum == finalNumb) {
+    clearInterval(counterInterval);
+  }
+
+   }, 100);
+
+}
+
+function updateNumber(){
+  const exitingSpan = countNumb.cloneNode(true);
+  exitingSpan.classList.add('exit');
+  countNumb.parentNode.appendChild(exitingSpan);
+
+  setTimeout(() => {
+    exitingSpan.remove();
+  }, 100);
+  countNumb.classList.remove('enter');
+  countNumb.classList.remove('enter-active')
+  const newSpan = countNumb.cloneNode(true);
+  newSpan.innerText = currentNum;
+  newSpan.classList.add('enter');
+  
+  countNumb.parentNode.replaceChild(newSpan, countNumb);
+    // countNumb.parentNode.appendChild(newSpan);
+
+  
+
+
+  requestAnimationFrame(() => {
+    setTimeout(()=>{
+      newSpan.classList.add('enter-active');
+      exitingSpan.classList.add('exit-active');
+    },0)
+  });
+
+  countNumb=newSpan;
+
+
+  }
+setTimeout(startInterval,(delay))
+});
 
 
 

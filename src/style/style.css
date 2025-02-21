@@ -1,4 +1,4 @@
-body{
+html{
   overflow-x: hidden;
 }
 
@@ -134,12 +134,14 @@ margin: 0 auto;
 
 
 .slides{
+  /* display: none; */
 opacity: 0;
   transition: all .3s ease-in-out;
 }
 .slides.active{
+
 opacity: 1;
-    display: block;
+    /* display: block; */
     }
 
     .store-tag::before{
@@ -153,5 +155,52 @@ opacity: 1;
     }
 
     .transition-500-ease {
-     transition: all .5s ease-in-out;
+     transition: all .2s ease-in-out ;
+  }
+
+
+
+  /* counter */
+  .counter-number {
+    display: flex;
+    position: relative;
+  }
+  
+  .number-box {
+    position: relative;
+    width: 30px; /* عرض جعبه عدد */
+    height: 60px; /* ارتفاع جعبه عدد */
+    overflow: hidden;
+  }
+  
+  .number-box span {
+    display: inline-block;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%
+  }
+  
+  .counter-number span.enter {
+    transform: translateY(100%);
+    opacity: 0;
+    
+  }
+  
+  .counter-number span.enter-active {
+    transform: translateY(0);
+   opacity: 1;
+  }
+  
+  .counter-number span.exit {
+    transform: translateY(0);
+    opacity: 1;
+
+    
+  }
+  
+  .counter-number span.exit-active {
+    transform: translateY(-100%);
+    opacity: 0;
   }
