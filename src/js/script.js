@@ -194,17 +194,17 @@ function prevFunction(){
   }
 }
 
-function fadeSlide(){
+// function fadeSlide(){
 
-  for(i=0;i<slides.length;i++){
-    slides[i].classList.remove('active');
+//   for(i=0;i<slides.length;i++){
+//     slides[i].classList.remove('active');
 
-    for(j=index+1;j<=index+3;j++){
-  slides[j].classList.add('active');
-    }
-  }
-}
-fadeSlide();
+//     for(j=index+1;j<=index+3;j++){
+//   slides[j].classList.add('active');
+//     }
+//   }
+// }
+// fadeSlide();
 
 
 
