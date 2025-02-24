@@ -194,17 +194,17 @@ function prevFunction(){
   }
 }
 
-// function fadeSlide(){
+function fadeSlide(){
 
-//   for(i=0;i<slides.length;i++){
-//     slides[i].classList.remove('active');
+  for(i=0;i<slides.length;i++){
+    slides[i].classList.remove('active');
 
-//     for(j=index+1;j<=index+3;j++){
-//   slides[j].classList.add('active');
-//     }
-//   }
-// }
-// fadeSlide();
+    for(j=index+1;j<=index+3;j++){
+  slides[j].classList.add('active');
+    }
+  }
+}
+fadeSlide();
 
 
 
@@ -280,7 +280,108 @@ setTimeout(startInterval,(delay))
 });
 
 
+//dropdown
+const servicBtn=document.querySelector('.servic-btn');
+const servicDropDown = document.querySelector('.contact .dropDown');
+let servicExpanded=false;
+servicBtn.addEventListener('click',()=>{  
+
+  if(servicExpanded){
+    servicDropDown.classList.add('scale-y-0');
+    servicBtn.classList.remove('rounded-b-none');
+    servicBtn.querySelector('svg').classList.remove('-rotate-90');
+    servicExpanded=false;
+  }else{
+  servicDropDown.classList.remove('scale-y-0');
+  servicBtn.classList.add('rounded-b-none');
+  servicBtn.querySelector('svg').classList.add('-rotate-90');
+  servicExpanded=true;
+  }
+
+})
+
+const dropDownOptions = document.querySelectorAll('.dropDown .option');
 
 
+dropDownOptions.forEach(option=>{
+option.addEventListener('click',()=>{
+
+  servicDropDown.classList.add('scale-y-0');
+  servicBtn.classList.remove('rounded-b-none');
+  servicExpanded=false;
+  servicBtn.querySelector('span').innerHTML = option.innerHTML;
 
 
+})
+})
+
+//validation
+
+const username =document.querySelector('.contact-inputs #name');
+const number=document.querySelector('.contact-inputs #number');
+const email=document.querySelector('.contact-inputs #email');
+const loginForm=document.querySelector('.contact-inputs form');
+
+loginForm.addEventListener('submit',(e)=>{
+  e.preventDefault();
+
+  checkInputs();
+})
+
+function checkInputs(){
+
+  const usernameValue = username.value.trim();
+  const numberValue = number.value.trim();
+    const emailValue = email.value.trim();
+  
+
+    if (usernameValue === "") {
+        setEror(username, 'این فیلد نمیتواند خالی باشد')
+    } else {
+        setSuccess(username);
+    }
+
+
+    if (emailValue === '') {
+        setEror(email, 'این فیلد نمیتواند خالی باشد');
+    } else if (!isEmail(emailValue)) {
+        setEror(email, 'ایمیل واردشده صحیح نیست');
+    } else {
+        setSuccess(email);
+    }
+
+
+    if (numberValue === '') {
+      setEror(number, 'این فیلد نمیتواند خالی باشد');
+    } else if (!isNumber(numberValue)) {
+        setEror(number, 'شماره واردشده صحیح نیست');
+    } else {
+        setSuccess(number);
+    }
+    }
+
+
+function setEror(input, massage) {
+  const formControl = input.parentElement;
+  const span = formControl.querySelector('span');
+  span.innerHTML = massage;
+  span.classList.remove('hidden');
+
+  
+}
+
+function setSuccess(input) {
+  const formControl = input.parentElement;
+  const span = formControl.querySelector('span');
+  span.classList.add('hidden');
+}
+
+const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const numberPattern =/^(\+98|0098|98|0)?9\d{9}$/;
+function isEmail(email) {
+    return emailPattern.test(email);
+}
+
+function isNumber(number){
+    return numberPattern.test(number);
+}

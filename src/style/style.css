@@ -155,14 +155,14 @@ margin: 0 auto;
 
 
 .slides{
-  /* display: none; */
+  visibility: hidden;
 opacity: 0;
   transition: all .3s ease-in-out;
 }
 .slides.active{
+visibility: visible;
+ opacity: 1;
 
-opacity: 1;
-    /* display: block; */
     }
 
     .store-tag::before{
@@ -189,8 +189,8 @@ opacity: 1;
   
   .number-box {
     position: relative;
-    width: 30px; /* عرض جعبه عدد */
-    height: 60px; /* ارتفاع جعبه عدد */
+    width: 30px ;
+    height: 60px; 
     overflow: hidden;
   }
   
@@ -225,3 +225,16 @@ opacity: 1;
     transform: translateY(-100%);
     opacity: 0;
   }
+
+
+
+  .clip-path-1{
+    clip-path: polygon(87% 0, 0% 0%, 20% 100%, 100% 100%)
+  }
+
+  .clip-path-2{
+    clip-path: polygon(81% 0, 100% 100%, 0% 100%);
+    }
+    .clip-path-3{
+      clip-path: polygon(0 0, 56% 100%, 100% 0);  
+    }
