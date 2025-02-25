@@ -163,48 +163,92 @@ section.classList.add('animate-run')
 
 
 //owl carousel
+window.addEventListener('DOMContentLoaded', (event) => {
+  initializeCarousels();
+});
 
-const storePrev = document.querySelector('#store-angels .prev');
-const storeNext = document.querySelector('#store-angels .next');
-const owlCarousel = document.querySelector('.owl-carousel-inner');
-const owlSlide = document.querySelector('.owl-carousel .slides');
-const SlideWidth = owlSlide.getBoundingClientRect().width;
-const slideMargin =parseFloat(window.getComputedStyle(owlSlide).marginRight);
-const slideTrueWidth = SlideWidth+slideMargin;
+function initializeCarousels(slideTrueWidth) {
+  const carouselContainers = document.querySelectorAll('.owl-carousel');
+  carouselContainers.forEach((carousel) => {
 
-storePrev.addEventListener('click',prevFunction)
-storeNext.addEventListener('click',nextFunction)
+    const owlSlide = carousel.querySelector('.slides');
+    const slideWidth = owlSlide.getBoundingClientRect().width;
+    const slideMargin = parseFloat(window.getComputedStyle(owlSlide).marginRight);
+    const slideTrueWidth = slideWidth + slideMargin;
+    let totalVisibleSlides = carousel.getAttribute('data-visible');
 
-index=0;
-const slides = document.querySelectorAll('.slides');
+    carousel.dataset.slideTrueWidth = slideTrueWidth;
+    carousel.dataset.index = 0;
 
-function nextFunction(){
-  if(index<slides.length-4){
-  index++;
-  owlCarousel.style.transform=`translateX(${slideTrueWidth*index}px)`;
-fadeSlide();
-  }
-}
-function prevFunction(){
-  if(index>0){
-    index--;
-  owlCarousel.style.transform=`translateX(${slideTrueWidth*index}px)`;
-  console.log(index)
-  fadeSlide();
-  }
+    updateActiveSlides(carousel, index, totalVisibleSlides);
+    return slideTrueWidth;
+
+  });
 }
 
-function fadeSlide(){
+function updateActiveSlides(carousel, index, totalVisibleSlides) {
+  const slides = carousel.querySelectorAll('.slides');
 
-  for(i=0;i<slides.length;i++){
-    slides[i].classList.remove('active');
-
-    for(j=index+1;j<=index+3;j++){
-  slides[j].classList.add('active');
-    }
+  slides.forEach((slide) => {
+      slide.classList.remove('active');
+  });
+  
+  for (let i = index; i < index + totalVisibleSlides; i++) {
+      slides[i].classList.add('active');
   }
 }
-fadeSlide();
+
+function moveCarousel(selectCarousel, direction) {
+  const owlCarouselnner = selectCarousel.querySelector('.owl-carousel-inner');
+  let index = parseInt(selectCarousel.getAttribute('data-index'));
+  const totalVisibleSlides = parseInt(selectCarousel.getAttribute('data-visible'));
+  const slideTrueWidth = parseInt(selectCarousel.getAttribute('data-slide-true-width'));
+  const slides = selectCarousel.querySelectorAll('.slides');
+
+  if (direction === 'prev' && index > 0) {
+      index--;
+  } else if (direction === 'next' && index < slides.length - totalVisibleSlides) {
+      index++;
+  } else {
+      return;
+  }
+
+  owlCarouselnner.style.transform = `translateX(${slideTrueWidth * index}px)`;
+  selectCarousel.setAttribute('data-index', index);
+
+  updateActiveSlides(selectCarousel, index, totalVisibleSlides);
+}
+
+document.querySelectorAll('.carousel-angles .prev').forEach(button => {
+  button.addEventListener('click', () => {
+      const angleId = button.parentElement.id;
+      const selectCarousel = document.querySelector(`[data-set="${angleId}"]`);
+      moveCarousel(selectCarousel, 'prev');
+  });
+});
+
+document.querySelectorAll('.carousel-angles .next').forEach(button => {
+  button.addEventListener('click', () => {
+      const angleId = button.parentElement.id;
+      const selectCarousel = document.querySelector(`[data-set="${angleId}"]`);
+      moveCarousel(selectCarousel, 'next');
+  });
+});
+
+document.querySelectorAll('.carousel-angles .prev, .carousel-angles .next').forEach(button => {
+  button.addEventListener('dblclick', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+  });
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -215,7 +259,6 @@ delay=40;
 index=0;
 countNumber.forEach((countNumb)=>{
 const numbData=parseInt(countNumb.getAttribute('data-numb'));
-  console.log(numbData)
 
 
   let currentNum = parseInt(countNumb.innerText);
