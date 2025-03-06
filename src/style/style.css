@@ -1,6 +1,9 @@
 html{
   overflow-x: hidden;
 }
+*{
+  box-sizing: border-box;
+}
 
 .cont{
 height: 100%;
@@ -142,25 +145,33 @@ margin: 0 auto;
   }
   
 
-  .animation{
-    transform: translateY(-40px);
+  .animation-down{
+    transform: translateY(20px);
     opacity: 0;
-    transition: all .5s ease-in-out;
+    transition: all 1s ease-in-out;
   }
 
-  .animate-run{
+  .animation-down-active{
     transform: translateY(0);
+    opacity: 1;
+  }
+
+  .animation-left{
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 2s ease-in-out;
+  }
+  .animation-left-active{
+    transform: translateX(0);
     opacity: 1;
   }
 
 
 .slides{
-  visibility: hidden;
-opacity: 0;
-  transition: all .3s ease-in-out;
+  opacity: 0;
+  transition: all .5s ease-in-out;
 }
 .slides.active{
-visibility: visible;
  opacity: 1;
 
     }
@@ -267,4 +278,12 @@ visibility: visible;
       border-radius: 50%;
       content: "";
       z-index: 2;
+    }
+
+    .counter-list li .counter-icon{
+      transform: rotateY(0) scale(1);
+      transition: all .7s ease-in-out;
+    }
+    .counter-list li:hover .counter-icon{
+      transform: rotateY(-360deg) scale(.9);
     }

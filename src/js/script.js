@@ -148,24 +148,45 @@ offSlide();
 
 
 //arrival animation
+window.addEventListener('scroll', () => {
+  arrival();
+});
+
+function arrival() {
+  const sections = document.querySelectorAll('[class*="animation"]');
+  const windowHeight = window.innerHeight;
+
+  sections.forEach(section => {
+    const targetPosition = section.getBoundingClientRect().top;
+
+    if (targetPosition <= windowHeight / 1.1) {
+      const sectionsClassSplit = section.className.split(' ');
+
+      sectionsClassSplit.forEach(classNames => {
+        if (classNames.startsWith('animation')) {
+          const newClass = `${classNames}-active`;
+
+          if (!section.classList.contains(newClass) && !section.dataset.activated) {
+            section.classList.add(newClass);
+            section.dataset.activated = 'true';
+            console.log(classNames);
+          }
+        }
+      });
+    }
+  });
+}
+
+arrival();
 
 
-window.addEventListener('scroll',()=>{
-  const sections= document.querySelectorAll('.animation')
-const scrollPosition = window.scrollY + window.innerHeight;
-  sections.forEach(section=>{
-    const sectionPosition = section.offsetTop + section.offsetHeight * 0.1;
-   if(scrollPosition > sectionPosition){
-section.classList.add('animate-run')
-  }
-  })
-})
 
 
 //owl carousel
-window.addEventListener('DOMContentLoaded', (event) => {
-  initializeCarousels();
-});
+const width =window.innerWidth;
+
+
+
 
 function initializeCarousels(slideTrueWidth) {
   const carouselContainers = document.querySelectorAll('.owl-carousel');
@@ -175,24 +196,27 @@ function initializeCarousels(slideTrueWidth) {
     const slideWidth = owlSlide.getBoundingClientRect().width;
     const slideMargin = parseFloat(window.getComputedStyle(owlSlide).marginRight);
     const slideTrueWidth = slideWidth + slideMargin;
-    let totalVisibleSlides = carousel.getAttribute('data-visible');
-
-    carousel.dataset.slideTrueWidth = slideTrueWidth;
-    carousel.dataset.index = 0;
-
-    updateActiveSlides(carousel, index, totalVisibleSlides);
+      let totalVisibleSlides = Math.floor(width/slideTrueWidth);
+      carousel.dataset.visibleSlide=totalVisibleSlides;
+      carousel.dataset.slideTrueWidth = slideTrueWidth;
+      carousel.dataset.index = 0;
+    updateActiveSlides(carousel);
     return slideTrueWidth;
 
   });
 }
+initializeCarousels();
 
-function updateActiveSlides(carousel, index, totalVisibleSlides) {
+
+function updateActiveSlides(carousel) {
   const slides = carousel.querySelectorAll('.slides');
+  let totalVisibleSlides=parseInt(carousel.getAttribute('data-visible-slide')); 
+  let index = parseInt(carousel.getAttribute('data-index'));
+console.log(totalVisibleSlides)
 
   slides.forEach((slide) => {
       slide.classList.remove('active');
   });
-  
   for (let i = index; i < index + totalVisibleSlides; i++) {
       slides[i].classList.add('active');
   }
@@ -201,9 +225,10 @@ function updateActiveSlides(carousel, index, totalVisibleSlides) {
 function moveCarousel(selectCarousel, direction) {
   const owlCarouselnner = selectCarousel.querySelector('.owl-carousel-inner');
   let index = parseInt(selectCarousel.getAttribute('data-index'));
-  const totalVisibleSlides = parseInt(selectCarousel.getAttribute('data-visible'));
-  const slideTrueWidth = parseInt(selectCarousel.getAttribute('data-slide-true-width'));
   const slides = selectCarousel.querySelectorAll('.slides');
+  let totalVisibleSlides=parseInt(selectCarousel.getAttribute('data-visible-slide'));
+  let slideTrueWidth=selectCarousel.getAttribute('data-slide-true-width');
+
 
   if (direction === 'prev' && index > 0) {
       index--;
@@ -216,8 +241,11 @@ function moveCarousel(selectCarousel, direction) {
   owlCarouselnner.style.transform = `translateX(${slideTrueWidth * index}px)`;
   selectCarousel.setAttribute('data-index', index);
 
-  updateActiveSlides(selectCarousel, index, totalVisibleSlides);
+  updateActiveSlides(selectCarousel, index);
 }
+
+
+
 
 document.querySelectorAll('.carousel-angles .prev').forEach(button => {
   button.addEventListener('click', () => {
@@ -235,12 +263,7 @@ document.querySelectorAll('.carousel-angles .next').forEach(button => {
   });
 });
 
-document.querySelectorAll('.carousel-angles .prev, .carousel-angles .next').forEach(button => {
-  button.addEventListener('dblclick', (event) => {
-      event.stopPropagation();
-      event.preventDefault();
-  });
-});
+
 
 
 
@@ -253,7 +276,20 @@ document.querySelectorAll('.carousel-angles .prev, .carousel-angles .next').forE
 
 
 //counter
-const countNumber = document.querySelectorAll('.counter-number span');
+let hasCounterRun =false;
+window.addEventListener('scroll',()=>{
+  if(!hasCounterRun){
+  const counterTop= document.querySelector('.counter .counter-body').getBoundingClientRect().top;
+  const windowHeight=window.innerHeight;
+  if(counterTop<=windowHeight/1.1){
+  counter();
+ hasCounterRun=true;
+  }
+  }
+})
+
+function counter(){
+  const countNumber = document.querySelectorAll('.counter-number span');
 
 delay=40;
 index=0;
@@ -322,6 +358,7 @@ function updateNumber(){
 setTimeout(startInterval,(delay))
 });
 
+}
 
 //dropdown
 const servicBtn=document.querySelector('.servic-btn');
